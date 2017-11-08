@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="css/teacherRegistration.css" />
+	
+	    <script type="text/javascript">
+        function submit_form(){
+            var xmlhttp;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST","insert_two.php?name="+document.getElementById("name").value+"&dob="+document.getElementById("dob").value+"&nic="+document.getElementById("nic").value+"&address="+document.getElementById("address").value+"&contact="+document.getElementById("contact").value+"&email="+document.getElementById("email").value+"&subject="+document.getElementById("sub").value,false);
+            xmlhttp.send(null);
+        }
+
+        function clear_form(){
+        	var name =document.getElementById('name').value;
+        	name = "";
+        }
+        function check_fields(){
+            var name = document.getElementById('name').value;
+            var dob = document.getElementById('dob').value;
+            var nic = document.getElementById('nic').value;
+            var address = document.getElementById('address').value;
+            var contact = document.getElementById('contact').value;
+            var email = document.getElementById('email').value;
+            var sub = document.getElementById('sub').value;
+            
+            if (name =='' || dob=='' || nic=='' || address=='' || contact=='' || sub==''){
+                alert("Fill all required fields");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <section class="registration_form">
+        <he><h2>User Registration</h2></he>
+        <form action="insert_two.php" method="POST" onsubmit="return check_fields();">
+            <p>
+                <label for="name" class="name">Name
+                </label>
+                <input type="text" name="name" id="name"/>
+            </p>
+            <p>
+                <label>Username</label>
+                <input type="text" name="nic" id="nic"/>
+
+                <!--<label>DOB<br><input type="date" name="dob" id="dob"/></label> -->
+            </p>
+            <p>
+              <label name="nic">NIC</label>
+              <input type="text" name="nic" id="nic"/>
+            </p>
+            <p>
+                <label name="address">Password</label>
+                <input type="text" name="address" id="address" />
+            </p>
+            <p>
+                <label name="contacNo">Contact</label>
+                <input type="tel" name="contact" placeholder="0xx xxxxxxx" id="contact"/>
+            </p>
+            <p>
+                <label>Email</label>
+                <input type="email" name="email" id="email"/>
+            </p>
+
+            <p class="buttons">
+                <input class="submit" type="" value="Back"/>
+
+                <input class="clear" type="button" value="Clear" onclick="clear_form();"/>
+                <input class="register" type="submit" value="Register" />
+            </p>
+        </form>
+    </section>
+
+</body>
+</html>
