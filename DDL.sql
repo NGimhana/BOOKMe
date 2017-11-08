@@ -4,9 +4,11 @@ USE Company;
 
 CREATE TABLE Customer(
   CustID VARCHAR(6) NOT NULL ,
+  UserName VARCHAR(10) NOT NULL,
   NIC VARCHAR (15) NOT NULL  ,
   Name VARCHAR(20) NOT NULL ,
   Tel INT NOT NULL ,
+  Password VARCHAR(10) NOT NULL,
   CONSTRAINT PRIMARY KEY (CustID)
 );
 
@@ -17,34 +19,37 @@ CREATE TABLE Town(
   CONSTRAINT PRIMARY KEY (TownID)
 );
 
-CREATE TABLE Route(
-  RouteID VARCHAR(6) NOT NULL,
-  StartTown INT NOT NULL,
-  DestinationTown INT NOT NULL,
-  CONSTRAINT PRIMARY KEY(RouteID)
+CREATE TABLE st_route(
+  r_id INT NOT NULL,
+  des VARCHAR (200) NOT NULL,
+  CONSTRAINT PRIMARY KEY(r_id)
 );
 
 CREATE TABLE Bus(
 	BusID VARCHAR(6) NOT NULL,
-	RouteID VARCHAR(6) NOT NULL,
+	r_id INT NOT NULL,
   DepartureTime DATE NOT NULL,
   WEEKDAY VARCHAR(6) NOT NULL,
   StartStation INT NOT NULL,
   DESTINATION INT NOT NULL,
 	CONSTRAINT PRIMARY KEY (BusID),
-	CONSTRAINT FOREIGN KEY (RouteID) REFERENCES Route(RouteID)
+	CONSTRAINT FOREIGN KEY (r_id) REFERENCES st_route(r_id)
 	ON UPDATE CASCADE ON DELETE CASCADE
 );
-
 
 CREATE TABLE Seat(
   SeatID VARCHAR(6) NOT NULL ,
   BusID VARCHAR (50) ,
-  Status VARCHAR(1) NOT NULL,
+  State INT NOT NULL,
   CONSTRAINT PRIMARY KEY (SeatID,BusID)
 );
 
-
+CREATE TABLE Station(
+  s_id VARCHAR(6) NOT NULL,
+  s_name VARCHAR(20) NOT NULL,
+  route_list VARCHAR (200) NOT NULL,
+  CONSTRAINT PRIMARY KEY(s_id)
+);
 
 CREATE TABLE Operator(
   OperatorID VARCHAR(6) NOT NULL ,
@@ -74,7 +79,10 @@ insert into Route values('R3',9,11);
 insert into Bus values('B1','R1',NOW(),'Sun',1,3);
 insert into Bus values('B2','R1',NOW(),'Sun',1,4);
 insert into Bus values('B3','R1',NOW(),'Sun',3,4);
+insert into Bus values('B4','R2',NOW(),'Sun',4,6);
 
+INSERT INTO Station VALUES (1, 'kadawatha', '1K3K5K9K4K6K8');
+INSERT INTO Station VALUES (2, 'mahara', '2K5K4K6K8'),;
+INSERT INTO Station VALUES (3, 'pettah', '1K4');
+INSERT INTO Station VALUES (4, 'dehiwala', '9K20K7');
 
-SELECT * FROM Bus Where RouteID=(SELECT RouteID from Route where StartTown <= 2
- and DestinationTown >= 2 UNION SELECT RouteID FROM Route WHERE StartTown <= 3 and DestinationTown >= 3);

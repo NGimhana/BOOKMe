@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,9 +16,12 @@
 </head>
 <body>
 
+<?php
+    echo file_get_contents("upside.php");
+?>
 
 
-<nav class="navbar navbar-inverse">
+<!--nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">BOOKMe</a>
@@ -35,9 +40,9 @@
         </ul>
     </div>
 
-</nav>
+</nav-->
 
-<div class="container" align="center" style="background-color: aliceblue">
+<div class="container-fluid" align="center" style="background-color: #ffffff">
     <div class="row">
         <h1>Search Your Travel</h1>
     </div>
@@ -49,7 +54,7 @@
 
         <div class="col-sm-2" align="center"></div>
 
-        <div class="col-sm-8" style="background-color: aquamarine" align="center">
+        <div class="col-sm-8" style="background-color: #ffffff" align="center">
             <br>
             <form>
                 <label class="radio-inline">
