@@ -1,5 +1,5 @@
 <?php
-    include "ddatabaseConnection.php";
+    include 'databaseConnection.php';
 //$start_st = 2;
 //$end_st = 1;
     $start_st = $_GET['beginTown'];
@@ -17,8 +17,7 @@
     $end_row = $row['route_list'];
     $end_route = explode('K', $end_row);
     $result = array_intersect($start_route, $end_route);
-//print_r($result);
-//foreach($result as $i){
-//    echo "$i" ."<br>";
-//}
+    foreach($result as $i){
+        echo "$i" ."<br>";
+}
 ?>

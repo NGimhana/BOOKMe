@@ -186,13 +186,13 @@
                     </ul>
                 </li> -->
                 <li>
-                    <a href="investigaciones/favoritas"><i class="fa fa-search"></i>  SEARCH BUSES</a>
+                    <a href="BookingHome.php"><i class="fa fa-search"></i> Reserve Seat</a>
                 </li>
                 <li>
-                    <a href="sugerencias"><i class="fa fa-toggle-off"></i> VIEW HISTORY</a>
+                    <a href=""><i class="fa fa-toggle-off"></i> VIEW HISTORY</a>
                 </li>
                 <li>
-                    <a href="faq"><i class="fa fa-money"></i> PAYMENTS</a>
+                    <!--a href="faq"><i class="fa fa-money"></i> PAYMENTS</a-->
                 </li>
             </ul>
         </div>

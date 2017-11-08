@@ -13,13 +13,16 @@
 
 </head>
 <body>
+<?php
+echo file_get_contents("upside.php");
+?>
 
 <div class="container">
     <form action="post">
         <div class="row">
 
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10" style="background-color: aliceblue">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" style="background-color: aliceblue">
                 <H2>Search Results</H2>
 
                 <table class="table">
@@ -56,7 +59,7 @@
 
 
             </div>
-            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
 
         </div>
         <button type="submit" name="submit" class="btn btn-success">Next</button>
