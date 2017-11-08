@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2017 at 12:52 PM
+-- Generation Time: Nov 08, 2017 at 10:55 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -91,6 +91,53 @@ INSERT INTO `route` (`RouteID`, `StartTown`, `DestinationTown`) VALUES
 ('R1', 1, 4),
 ('R2', 4, 8),
 ('R3', 9, 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `route_bus`
+--
+
+CREATE TABLE `route_bus` (
+  `bus_id` int(11) NOT NULL,
+  `route_id` int(11) NOT NULL,
+  `departure_time` time NOT NULL,
+  `end_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `route_bus`
+--
+
+INSERT INTO `route_bus` (`bus_id`, `route_id`, `departure_time`, `end_time`) VALUES
+(1, 1, '03:18:00', '06:23:00'),
+(2, 1, '03:18:00', '06:23:00'),
+(3, 1, '03:18:00', '06:23:00'),
+(4, 2, '03:18:00', '06:23:00'),
+(5, 2, '03:18:00', '06:23:00'),
+(6, 3, '03:18:00', '06:23:00'),
+(7, 4, '03:18:00', '06:23:00'),
+(8, 4, '03:18:00', '06:23:00'),
+(9, 5, '03:18:00', '06:23:00'),
+(10, 5, '03:18:00', '06:23:00'),
+(11, 6, '03:18:00', '06:23:00'),
+(12, 6, '03:18:00', '06:23:00'),
+(13, 7, '03:18:00', '06:23:00'),
+(14, 8, '00:00:00', '00:00:00'),
+(15, 8, '00:00:00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `route_no`
+--
+
+CREATE TABLE `route_no` (
+  `route_id` int(11) NOT NULL,
+  `route_no` varchar(30) NOT NULL,
+  `start_st` int(11) NOT NULL,
+  `end_st` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -195,6 +242,18 @@ ALTER TABLE `operator`
 --
 ALTER TABLE `route`
   ADD PRIMARY KEY (`RouteID`);
+
+--
+-- Indexes for table `route_bus`
+--
+ALTER TABLE `route_bus`
+  ADD PRIMARY KEY (`bus_id`);
+
+--
+-- Indexes for table `route_no`
+--
+ALTER TABLE `route_no`
+  ADD PRIMARY KEY (`route_id`);
 
 --
 -- Indexes for table `seat`
