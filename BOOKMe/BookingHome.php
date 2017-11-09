@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Late st compiled JavaScript -->
+    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
 
@@ -80,7 +80,7 @@
             </label>
             <br>
             <br>
-            <form class="form-inline" method="GET" action="Search_result.php">
+            <form class="form-inline" method="GET" action="SearchResults.php">
                 <div class="row">
 
                     <div class="col-sm-2"></div>

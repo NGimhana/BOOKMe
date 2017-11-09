@@ -31,27 +31,30 @@
                     <th style="color: white">Frequency </th>
                 </tr>
 
+
                 </thead>
                 <tbody>
 
                     <?php
-                    include 'search_station.php';
+                    $dbhost = 'localhost:3306';
+                    $dbuser = 'root';
+                    $dbpass = '';
+                    $databse = 'Company';
+                    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $databse);
+
                     $beginTown = $_GET['beginTown'];
                     $destinationTown = $_GET['destinationTown'];
+
 
                     $sql = "SELECT * FROM Bus Where RouteID = (SELECT RouteID from Route where StartTown <= 2
                     and DestinationTown >= 2 UNION SELECT RouteID FROM Route WHERE StartTown <= 3 and DestinationTown >= 3)";
                     //$result = mysqli_query($conn, $sql);
                     $result = mysqli_query($conn,$sql);
 
-                    //test
-                    //echo gettype($result);
-
-
-                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                   while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                         echo "<tr>";
-                        echo "<td>" . "<a href='#'>" . $row['RouteID'] . "</a>" . "</td>";
-                        echo "<td>" . gettype($row['StartStation']) . "</td>";
+                        echo "<td>" . $row['RouteID'] . "</td>";
+                        echo "<td>" . $row['StartStation'] . "</td>";
                         echo "<td>" . $row['DESTINATION'] . "</td>";
                     }
                     ?>
